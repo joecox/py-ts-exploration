@@ -12,3 +12,81 @@ dev = [
 
 [tool.uv]
 required-version = "0.7.3"
+
+[tool.ruff]
+extend-select = [
+    # pycodestyle errors: https://docs.astral.sh/ruff/rules/#error-e
+    # catches violations of style conventions (pep8)
+    "E",
+    # pycodestyle warn: https://docs.astral.sh/ruff/rules/#warning-w
+    # catches additional violations of pep8
+    "W",
+    # pyflakes: https://docs.astral.sh/ruff/rules/#pyflakes-f
+    # catches various errors related to imports, f-strings, and many more
+    "F",
+    # flake8-bugbear: https://docs.astral.sh/ruff/rules/#flake8-bugbear-b
+    # catches likely bugs and more opinionated design problems and nits
+    "B",
+    # pep8-naming: https://docs.astral.sh/ruff/rules/#pep8-naming-n
+    # catches violations of pep8 naming conventions
+    "N",
+    # mccabe complexity: https://docs.astral.sh/ruff/rules/#mccabe-c90
+    # catches code with high cyclomatic complexity
+    "C90",
+    # flake8-async: https://docs.astral.sh/ruff/rules/#flake8-async-async
+    # catches issues with async methods calling blocking methods
+    "ASYNC",
+    # flake8-blind-except: https://docs.astral.sh/ruff/rules/#flake8-blind-except-ble
+    # prevent catching BaseException
+    "BLE",
+    # flake8-boolean-trap: https://docs.astral.sh/ruff/rules/#flake8-boolean-trap-fbt
+    # prevent boolean traps
+    "FBT",
+    # flake8-debugger: https://docs.astral.sh/ruff/rules/#flake8-debugger-t10
+    # prevent accidental debugger statements
+    "T10",
+    # flake8-no-pep420: https://docs.astral.sh/ruff/rules/#flake8-no-pep420-inp
+    # prevent missing __init__.py files
+    "INP",
+    # flake8-pie: https://docs.astral.sh/ruff/rules/#flake8-pie-pie
+    # catches misc style nits, like passing kwargs as a dict
+    "PIE",
+    # flake8-print: https://docs.astral.sh/ruff/rules/#flake8-print-t20
+    # prevents print statements
+    "T20",
+    # flake8-quotes: https://docs.astral.sh/ruff/rules/#flake8-quotes-q
+    # catches quote-based style nits
+    "Q",
+    # flake8-raise: https://docs.astral.sh/ruff/rules/#flake8-raise-rse
+    # catches exception style nit
+    "RSE",
+    # flake8-return: https://docs.astral.sh/ruff/rules/#flake8-return-ret
+    # catches return-based style nits
+    "RET",
+    # flake8-self: https://docs.astral.sh/ruff/rules/#flake8-self-slf
+    # catches access of private-by-convention attributes (underscore-prefixed)
+    "SLF",
+    # https://docs.astral.sh/ruff/rules/banned-api/
+    # prevents import of specific banned apis
+    "TID251",
+    # flake8-unused-arguments: https://docs.astral.sh/ruff/rules/#flake8-unused-arguments-arg
+    # prevent unused method arguments
+    "ARG",
+    # pyupgrade: https://docs.astral.sh/ruff/rules/#pyupgrade-up
+    # prevents use of deprecated or replaced language features/syntax
+    "UP",
+    # https://docs.astral.sh/ruff/rules/blanket-noqa/
+    # https://docs.astral.sh/ruff/rules/unused-noqa/
+    # https://docs.astral.sh/ruff/rules/redirected-noqa/
+    # https://docs.astral.sh/ruff/rules/invalid-rule-code/
+    # Prevent issues with noqa directives, like blanket directives or invalid codes
+    "PGH004", "RUF100", "RUF101",
+    # https://docs.astral.sh/ruff/rules/invalid-pyproject-toml/
+    # Prevent invalid pyproject.toml
+    "RUF200",
+]
+ignore = [
+    # https://docs.astral.sh/ruff/rules/multiple-starts-ends-with/
+    # The discouraged format seems more readable to me.
+    "PIE810",
+]
