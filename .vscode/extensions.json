@@ -1,6 +1,3 @@
 {
-  "recommendations": [
-    "editorconfig.editorconfig",
-    "charliermarsh.ruff"
-  ]
+  "recommendations": ["editorconfig.editorconfig", "charliermarsh.ruff"]
 }

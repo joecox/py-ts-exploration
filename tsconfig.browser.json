@@ -1,0 +1,26 @@
+{
+  "extends": "./tsconfig.shared.json",
+  "include": ["frontend"],
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+
+    // Browser code also needs access to browser APIs
+    "lib": ["ES2024", "DOM", "WebWorker"],
+
+    // We need to explicitly manage types to prevent node types being
+    // available in browser code and browser-specific package types in node
+    // code (e.g. react types).
+    "types": ["@types/react", "@types/react-dom", "vite/client"],
+
+    // `jsx` needs to be enabled with _some_ value, but the specific value
+    // only effects compilation.
+    "jsx": "preserve",
+
+    // Allow importing any extension which has a .d.ts declaration, such as
+    // CSS.
+    "allowArbitraryExtensions": true,
+
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.browser.tsbuildinfo"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.shared.json",
+  "include": ["**/*"],
+  "exclude": ["frontend"],
+  "compilerOptions": {
+    "module": "NodeNext",
+
+    // Running Typescript in Node requires explicit ESM imports, which
+    // requires explicit extensions.
+    "allowImportingTsExtensions": true,
+
+    // To run Typescript in Node without first compiling to JS, any syntax
+    // that can't be simply erased is disallowed (e.g. enums).
+    "erasableSyntaxOnly": true,
+
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo"
+  }
+}
