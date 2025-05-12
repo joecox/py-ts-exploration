@@ -6,16 +6,47 @@ repos:
   hooks:
   - id: check-case-conflict
 
-- repo: https://github.com/astral-sh/uv-pre-commit
-  rev: 0.7.3 # uv version
+- repo: local
   hooks:
-    - id: uv-lock
-
-- repo: https://github.com/astral-sh/ruff-pre-commit
-  rev: v0.11.9 # ruff version
-  hooks:
-    # Run the linter.
-    - id: ruff
-      args: [ --fix ]
-    # Run the formatter.
-    - id: ruff-format
+  - id: uv-lock
+    name: uv-lock
+    description: "Ensure uv.lock is up-to-date"
+    language: system
+    entry: uv lock
+    files: ^(uv\.lock|pyproject\.toml)$
+    pass_filenames: false
+  - id: ruff-lint
+    name: ruff-lint
+    description: "Run the Ruff linter"
+    language: system
+    entry: uv run ruff check --fix
+    types: [python]
+    pass_filenames: false
+  - id: ruff-format
+    name: ruff-format
+    description: "Run the Ruff formatter"
+    language: system
+    entry: uv run ruff format
+    types: [python]
+    pass_filenames: false
+  - id: ts-typecheck
+    name: ts-typecheck
+    description: "Typecheck Typescript across the entire project"
+    language: system
+    entry: pnpm typecheck
+    types_or: [javascript, jsx, ts, tsx]
+    pass_filenames: false
+  - id: ts-lint
+    name: ts-lint
+    description: "Run the oxlint TS/JS linter"
+    language: system
+    entry: pnpm oxlint --fix
+    types_or: [javascript, jsx, ts, tsx]
+    pass_filenames: false
+  - id: ts-format
+    name: ts-format
+    description: "Run the Biome formatter"
+    language: system
+    entry: pnpm biome check --fix
+    types_or: [javascript, jsx, ts, tsx, json, css]
+    pass_filenames: false

@@ -1,0 +1,58 @@
+{
+  // This shared tsconfig provides shared configuration that should be extended
+  // by the bundler- and Node-specific tsconfigs.
+  "compilerOptions": {
+    // This project does not use tsc to emit any compiled code but instead
+    // delegates that to a bundler. This makes many other compiler options
+    // irrelevant in certain ways:
+    // - `target` also automatically sets `lib`, but its effect on compilation
+    //   is not relevant.
+    // - `jsx` needs to be enabled with _some_ value, but the specific value
+    //   only effects compilation.
+    "noEmit": true,
+
+    // We specify `lib` instead of `target` because we don't care about
+    // `target`'s effect on compilation.
+    //
+    // `lib` makes specific JS APIs available. For example,
+    // - ES2017 adds `String.prototype.padStart()`
+    // - ES2024 adds `Array.prototype.toSorted()`
+    //
+    // We can afford to provide up-to-date APIs; Node supports ES2024 APIs,
+    // and the bundler will polyfill anything our browser target version
+    // doesn't support.
+    //
+    // Don't target ESNext, in case we update Typescript without upgrading
+    // Node.
+    //
+    // The tsconfig governing browser code will add additional browser APIs.
+    "lib": ["ES2024"],
+
+    // Check `import 'module'` (side-effect) imports. This is required in order
+    // to emit errors when importing modules that don't exist.
+    "noUncheckedSideEffectImports": true,
+
+    // Allow importing .json files; Node can handle this fine and the bundler
+    // will rewrite those imports if necessary.
+    "resolveJsonModule": true,
+
+    // Enforces that exported types are imported with the `type` keyword.
+    "verbatimModuleSyntax": true,
+
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+
+    // Only Typescript!
+    "allowJs": false,
+
+    // misc
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}
