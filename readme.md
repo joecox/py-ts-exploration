@@ -1,3 +1,3 @@
-# py-ts-exploration-template
+# py-ts-exploration
 
-This repo is a template for various explorations related to Python-backend/Typescript-frontend projects.
+This repo is for various explorations related to Python-backend/Typescript-frontend projects.
