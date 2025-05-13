@@ -32,9 +32,9 @@ jobs:
     - uses: ./.github/actions/ts-deps
     - run: pnpm oxlint
     - run: pnpm biome check
-  lint-gha:
+  lint-github-actions:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - uses: ./.github/actions/python-deps
-    - run: uv run zizmor --min-severity=high .github
+    - run: uv run zizmor --min-severity=high --no-progress .github
