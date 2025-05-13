@@ -1,0 +1,17 @@
+{
+  // Use the uv-installed python
+  "python.defaultInterpreterPath": ".venv/bin/python",
+  // Turn on import completions
+  "python.analysis.autoImportCompletions": true,
+  // Make import completions relative to the backend folder
+  // ```py
+  // from lib import foo
+  // # instead of
+  // from backend.lib import foo
+  // ```
+  "python.analysis.extraPaths": ["backend"],
+  // Use the pnpm-installed typescript
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  // Prompt users to select the workspace Typescript version
+  "typescript.enablePromptUseWorkspaceTsdk": true
+}
