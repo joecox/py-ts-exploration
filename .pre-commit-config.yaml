@@ -50,3 +50,9 @@ repos:
     entry: pnpm biome check --fix
     types_or: [javascript, jsx, ts, tsx, json, css]
     pass_filenames: false
+  - id: github-actions-lint
+    name: github-actions-lint
+    language: system
+    entry: uv run zizmor --min-severity=high --no-progress .github
+    files: (\.github/workflows/.*)|(action\.ya?ml)$
+    pass_filenames: false
