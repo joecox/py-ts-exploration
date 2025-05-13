@@ -1,6 +1,10 @@
-def main():
-    print("Hello from py-ts-exploration-template!")  # noqa: T201
+from fastapi import FastAPI
+
+from lib.other import other
+
+app = FastAPI()
 
 
-if __name__ == "__main__":
-    main()
+@app.get("/")
+def root():
+    return {"hello": other()}
