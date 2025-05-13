@@ -14,13 +14,13 @@ runs:
     name: "Parse pnpm version from package.json"
     shell: bash
     run: |
-      version=$(cat package.json | jq .engines.pnpm)
+      version=$(jq -r .engines.pnpm package.json)
       echo "version=$version" >> "$GITHUB_OUTPUT"
   - id: node-version
     name: "Parse node version from pnpm-workspace.yaml"
     shell: bash
     run: |
-      version=$(cat pnpm-workspace.yaml | yq .useNodeVersion)
+      version=$(yq .useNodeVersion pnpm-workspace.yaml)
       echo "version=$version" >> "$GITHUB_OUTPUT"
   - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
     with:
