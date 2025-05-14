@@ -10,8 +10,10 @@ Each exploration is merged into `main` and categorized below.
 - use dprint: [pull/7](https://github.com/joecox/py-ts-exploration/pull/7)
 - vscode formatter settings: [pull/8](https://github.com/joecox/py-ts-exploration/pull/8)
 
-## CI
+## Testing
+- python testing: [pull/5](https://github.com/joecox/py-ts-exploration/pull/5)
 
+## CI
 - Github actions: [pull/3](https://github.com/joecox/py-ts-exploration/pull/3)
 - separate lint/format steps: [pull/7](https://github.com/joecox/py-ts-exploration/pull/7)
 
