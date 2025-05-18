@@ -15,44 +15,53 @@ repos:
     entry: uv lock
     files: ^(uv\.lock|pyproject\.toml)$
     pass_filenames: false
-  - id: ruff-lint
-    name: ruff-lint
-    description: "Run the Ruff linter"
+
+  - id: lint-python
+    name: lint-python
+    description: "Lint python files using Ruff"
     language: system
     entry: uv run ruff check --fix
     types: [python]
     pass_filenames: false
-  - id: ruff-format
-    name: ruff-format
-    description: "Run the Ruff formatter"
+  - id: lint-ts
+    name: lint-ts
+    description: "Lint typescript using oxlint"
+    language: system
+    entry: pnpm oxlint --fix
+    types_or: [ts, tsx]
+    pass_filenames: false
+  - id: lint-github-actions
+    name: lint-github-actions
+    language: system
+    entry: uv run zizmor --min-severity=high --no-progress .github
+    files: (\.github/workflows/.*)|(action\.ya?ml)$
+    pass_filenames: false
+
+  - id: format-python
+    name: format-python
+    description: "Format python files using Ruff"
     language: system
     entry: uv run ruff format
     types: [python]
     pass_filenames: false
-  - id: ts-typecheck
-    name: ts-typecheck
-    description: "Typecheck Typescript across the entire project"
+  - id: format-ts
+    name: format-ts
+    description: "Format typescript using dprint"
+    language: system
+    entry: pnpm dprint fmt '**/*.{ts,tsx}'
+    types_or: [ts, tsx]
+    pass_filenames: false
+  - id: format-other
+    name: format-other
+    description: "Format other files (json, css, html, md, toml, docker) using dprint"
+    language: system
+    entry: pnpm dprint fmt --excludes '**/*.{ts,tsx}'
+    types_or: [json, css, html, markdown, toml, dockerfile]
+    pass_filenames: false
+  - id: typecheck-ts
+    name: typecheck-ts
+    description: "Typecheck typescript across the entire project"
     language: system
     entry: pnpm typecheck
-    types_or: [javascript, jsx, ts, tsx]
-    pass_filenames: false
-  - id: ts-lint
-    name: ts-lint
-    description: "Run the oxlint TS/JS linter"
-    language: system
-    entry: pnpm oxlint --fix
-    types_or: [javascript, jsx, ts, tsx]
-    pass_filenames: false
-  - id: ts-format
-    name: ts-format
-    description: "Run the Biome formatter"
-    language: system
-    entry: pnpm biome check --fix
-    types_or: [javascript, jsx, ts, tsx, json, css]
-    pass_filenames: false
-  - id: github-actions-lint
-    name: github-actions-lint
-    language: system
-    entry: uv run zizmor --min-severity=high --no-progress .github
-    files: (\.github/workflows/.*)|(action\.ya?ml)$
+    types_or: [ts, tsx]
     pass_filenames: false

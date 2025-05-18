@@ -88,7 +88,9 @@ extend-select = [
     # https://docs.astral.sh/ruff/rules/redirected-noqa/
     # https://docs.astral.sh/ruff/rules/invalid-rule-code/
     # Prevent issues with noqa directives, like blanket directives or invalid codes
-    "PGH004", "RUF100", "RUF101",
+    "PGH004",
+    "RUF100",
+    "RUF101",
     # https://docs.astral.sh/ruff/rules/invalid-pyproject-toml/
     # Prevent invalid pyproject.toml
     "RUF200",
