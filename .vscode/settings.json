@@ -14,6 +14,13 @@
   "typescript.tsdk": "./node_modules/typescript/lib",
   // Prompt users to select the workspace Typescript version
   "typescript.enablePromptUseWorkspaceTsdk": true,
-
-  "dprint.path": "./node_modules/.bin/dprint"
+  // Formatting: use pnpm-installed dprint and configure language formatters
+  // do not use "formatOnType" or "formatOnSave" - users can decide those for themselves
+  "dprint.path": "./node_modules/.bin/dprint",
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+  "[typescript][typescriptreact][yaml][toml][css][html][dockerfile][markdown]": {
+    "editor.defaultFormatter": "dprint.dprint"
+  }
 }

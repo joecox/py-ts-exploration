@@ -8,6 +8,7 @@ Each exploration is merged into `main` and categorized below.
 
 - lint/formatting/typechecking tools: [pull/2](https://github.com/joecox/py-ts-exploration/pull/2)
 - use dprint: [pull/7](https://github.com/joecox/py-ts-exploration/pull/7)
+- vscode formatter settings: [pull/8](https://github.com/joecox/py-ts-exploration/pull/8)
 
 ## CI
 
