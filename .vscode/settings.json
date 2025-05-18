@@ -13,5 +13,7 @@
   // Use the pnpm-installed typescript
   "typescript.tsdk": "./node_modules/typescript/lib",
   // Prompt users to select the workspace Typescript version
-  "typescript.enablePromptUseWorkspaceTsdk": true
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+
+  "dprint.path": "./node_modules/.bin/dprint"
 }
