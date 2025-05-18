@@ -53,10 +53,10 @@ repos:
     pass_filenames: false
   - id: format-other
     name: format-other
-    description: "Format other files (json, css, html, md, toml, docker) using dprint"
+    description: "Format other files (json, css, html, md, toml, docker, yaml) using dprint"
     language: system
     entry: pnpm dprint fmt --excludes '**/*.{ts,tsx}'
-    types_or: [json, css, html, markdown, toml, dockerfile]
+    types_or: [json, css, html, markdown, toml, dockerfile, yaml]
     pass_filenames: false
   - id: typecheck-ts
     name: typecheck-ts
