@@ -1,6 +1,4 @@
 {
-  "newLineKind": "lf",
-  "useTabs": false,
   "indentWidth": 2,
   "typescript": {
     "quoteProps": "asNeeded",
@@ -8,10 +6,6 @@
   },
   "toml": {
     "indentWidth": 4,
-  },
-  "malva": {
-  },
-  "markup": {
   },
   "yaml": {
     "indentBlockSequenceInMap": false,
