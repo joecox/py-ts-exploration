@@ -14,3 +14,7 @@ Each exploration is merged into `main` and categorized below.
 
 - Github actions: [pull/3](https://github.com/joecox/py-ts-exploration/pull/3)
 - separate lint/format steps: [pull/7](https://github.com/joecox/py-ts-exploration/pull/7)
+
+## Env
+
+- pydantic settings: [pull/6](https://github.com/joecox/py-ts-exploration/pull/6), [pull/10](https://github.com/joecox/py-ts-exploration/pull/10)
