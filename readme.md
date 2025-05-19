@@ -13,6 +13,7 @@ Each exploration is merged into `main` and categorized below.
 ## Testing
 
 - python testing: [pull/5](https://github.com/joecox/py-ts-exploration/pull/5)
+- ts testing: [pull/11](https://github.com/joecox/py-ts-exploration/pull/11)
 
 ## CI
 
