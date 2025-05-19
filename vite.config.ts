@@ -7,5 +7,12 @@ export default {
   plugins: [react()],
   test: {
     environment: "happy-dom",
+    browser: {
+      provider: "playwright",
+      enabled: true,
+      headless: true,
+      instances: [{ browser: "chromium" }],
+    },
+    setupFiles: ["./test-utils/setup.ts"],
   },
 } satisfies UserConfig;
