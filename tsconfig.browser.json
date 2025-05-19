@@ -11,7 +11,7 @@
     // We need to explicitly manage types to prevent node types being
     // available in browser code and browser-specific package types in node
     // code (e.g. react types).
-    "types": ["@types/react", "@types/react-dom", "vite/client"],
+    "types": ["@types/react", "@types/react-dom", "vite/client", "vitest/importMeta"],
 
     // `jsx` needs to be enabled with _some_ value, but the specific value
     // only effects compilation.
