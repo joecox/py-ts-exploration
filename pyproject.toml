@@ -6,11 +6,15 @@ requires-python = ">=3.13, <3.14"
 dependencies = [
     "fastapi[standard]>=0.115.12",
     "pydantic-settings>=2.9.1",
+    "pytest-env>=1.1.5",
 ]
 
 [dependency-groups]
 dev = [
+    "httpx>=0.28.1",
     "pre-commit>=4.2.0",
+    "pytest>=8.3.5",
+    "pytest-xdist>=3.6.1",
     "ruff>=0.11.9",
     "zizmor>=1.7.0",
 ]
@@ -102,3 +106,6 @@ ignore = [
     # The discouraged format seems more readable to me.
     "PIE810",
 ]
+
+[tool.pytest_env]
+ENV = "test"
