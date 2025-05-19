@@ -1,16 +1,12 @@
-from fastapi import FastAPI
-
-from lib.other import other
-from lib.settings import settings
-
-app = FastAPI()
+from lib.settings import get_settings
+from server import app
 
 
 @app.get("/")
 def root():
-    return {"hello": other()}
+    return {"hello": "world"}
 
 
 @app.get("/settings")
-def get_settings():
-    return settings
+def settings():
+    return get_settings()
